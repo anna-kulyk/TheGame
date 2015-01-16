@@ -11,19 +11,19 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            var test = new RegistrySerializerTests();
+            //var test = new RegistrySerializerTests();
 
-            test.Serialize_SuccessTest();
-            test.Serialize_ClassWithoutAttribute_Throws();
-            test.Serialize_WrongTypeProperty_Throws();
-            test.Serialize_PropertiesWithoutAttribute_Throws();
+            //test.Serialize_SuccessTest();
+            //test.Serialize_ClassWithoutAttribute_Throws();
+            //test.Serialize_WrongTypeProperty_Throws();
+            //test.Serialize_PropertiesWithoutAttribute_Throws();
 
-            test.Deserialize_SuccessTest();
-            test.Deserialize_ClassWithoutAttribute_Throws();
-            test.Deserialize_ClassWasNotSerialized_Throws();
-            test.Deserialize_WrongTypeProperty_Throws();
-            test.Deserialize_PropertiesWithoutAttribute_Throws();
-            test.Deserialize_NoValuePropertiesTest();
+            //test.Deserialize_SuccessTest();
+            //test.Deserialize_ClassWithoutAttribute_Throws();
+            //test.Deserialize_ClassWasNotSerialized_Throws();
+            //test.Deserialize_WrongTypeProperty_Throws();
+            //test.Deserialize_PropertiesWithoutAttribute_Throws();
+            //test.Deserialize_NoValuePropertiesTest();
 
             //var accset = new AccountSettings("Anna");
             //var serconset = new ServerConnectionSettings("My IP Address", 2356);
