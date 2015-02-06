@@ -27,7 +27,7 @@ namespace Tools.RegistrySerialization
 
             if (objAttributes.Length == 0)
             {
-                throw new InvalidOperationException("Error! You cannot serialize the instance of this class!");
+                throw new RegistrySerializationException(string.Format(RegistrySerializationLocalization.NoRegistryDataContractAttribute, objType.Name, typeof(RegistryDataContractAttribute).Name));
             }
 
             PropertyInfo[] objPropeties = objType.GetProperties();
@@ -71,7 +71,7 @@ namespace Tools.RegistrySerialization
                             }
                             else
                             {
-                                throw new InvalidOperationException(string.Format("Error! You cannot serialize a property of type '{0}'", propertyType.Name));
+                                throw new RegistrySerializationException(string.Format(RegistrySerializationLocalization.WrongPropertyType, propertyType.Name));
                             }
                         }
                     }
@@ -80,7 +80,7 @@ namespace Tools.RegistrySerialization
 
             if (noPropertyWithAttribute)
             {
-                throw new InvalidOperationException("Error! You cannot serialize properties of this class!");
+                throw new RegistrySerializationException(string.Format(RegistrySerializationLocalization.NoRegistryDataMemberAttribute, objType.Name, typeof(RegistryDataMemberAttribute).Name));
             }
         }
 
@@ -92,7 +92,7 @@ namespace Tools.RegistrySerialization
 
             if (objAttributes.Length == 0)
             {
-                throw new InvalidOperationException("Error! You cannot deserialize the instance of this class!");
+                throw new RegistrySerializationException(string.Format(RegistrySerializationLocalization.NoRegistryDataContractAttribute, objType.Name, typeof(RegistryDataContractAttribute).Name));
             }
 
             PropertyInfo[] objPropeties = objType.GetProperties();
@@ -119,14 +119,14 @@ namespace Tools.RegistrySerialization
                     {
                         if (mainKey == null)
                         {
-                            throw new InvalidOperationException("Error! The instance of this class wasn't serialized!");
+                            throw new RegistrySerializationException(string.Format(RegistrySerializationLocalization.ClassWasNotSerailized, objType.Name));
                         }
 
                         using (var subKey = mainKey.OpenSubKey(objType.Name, RegistryKeyPermissionCheck.ReadWriteSubTree))
                         {
                             if (subKey == null)
                             {
-                                throw new InvalidOperationException("Error! The instance of this class wasn't serialized!");
+                                throw new RegistrySerializationException(string.Format(RegistrySerializationLocalization.ClassWasNotSerailized, objType.Name));
                             }
 
                             if (propertyType == typeof(string))
@@ -139,7 +139,7 @@ namespace Tools.RegistrySerialization
                             }
                             else
                             {
-                                throw new InvalidOperationException(string.Format("Error! You cannot serialize a property of type '{0}'", propertyType.Name));
+                                throw new RegistrySerializationException(string.Format(RegistrySerializationLocalization.WrongPropertyType, propertyType.Name));
                             }
                         }
                     }
@@ -148,7 +148,7 @@ namespace Tools.RegistrySerialization
 
             if (noPropertyWithAttribute)
             {
-                throw new InvalidOperationException("Error! You cannot deserialize properties of this class!");
+                throw new RegistrySerializationException(string.Format(RegistrySerializationLocalization.NoRegistryDataMemberAttribute, objType.Name, typeof(RegistryDataMemberAttribute).Name));
             }
 
             return obj;

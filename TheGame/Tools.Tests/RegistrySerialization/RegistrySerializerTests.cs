@@ -57,7 +57,7 @@ namespace Tools.Tests.RegistrySerialization
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(RegistrySerializationException))]
         public void Serialize_ClassWithoutAttribute_Throws()
         {
             // Arrange
@@ -68,7 +68,7 @@ namespace Tools.Tests.RegistrySerialization
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(RegistrySerializationException))]
         public void Serialize_WrongTypeProperty_Throws()
         {
             // Arrange
@@ -79,7 +79,7 @@ namespace Tools.Tests.RegistrySerialization
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(RegistrySerializationException))]
         public void Serialize_PropertiesWithoutAttribute_Throws()
         {
             // Arrange
@@ -107,7 +107,7 @@ namespace Tools.Tests.RegistrySerialization
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(RegistrySerializationException))]
         public void Deserialize_ClassWithoutAttribute_Throws()
         {            
             // Act
@@ -115,7 +115,7 @@ namespace Tools.Tests.RegistrySerialization
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(RegistrySerializationException))]
         public void Deserialize_ClassWasNotSerialized_Throws()
         {
             // Act
@@ -123,7 +123,7 @@ namespace Tools.Tests.RegistrySerialization
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(RegistrySerializationException))]
         public void Deserialize_WrongTypeProperty_Throws()
         {
             // Act
@@ -136,7 +136,7 @@ namespace Tools.Tests.RegistrySerialization
         }
 
         [Test]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(RegistrySerializationException))]
         public void Deserialize_PropertiesWithoutAttribute_Throws()
         {
             // Act
