@@ -44,8 +44,21 @@
     <Compile Include="RegistrySerialization\ISerializer.cs" />
     <Compile Include="RegistrySerialization\RegistryDataContractAttribute.cs" />
     <Compile Include="RegistrySerialization\RegistryDataMemberAttribute.cs" />
+    <Compile Include="RegistrySerialization\RegistrySerializationException.cs" />
+    <Compile Include="RegistrySerialization\RegistrySerializationLocalization.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RegistrySerializationLocalization.resx</DependentUpon>
+    </Compile>
     <Compile Include="RegistrySerialization\RegistrySerializer.cs" />
     <Compile Include="ServerConnectionSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RegistrySerialization\RegistrySerializationLocalization.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RegistrySerializationLocalization.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrySerialization\RegistrySerializationLocalization.ru-RU.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
