@@ -22,24 +22,19 @@ namespace Tools.RegistrySerialization
         public void Serialize(object obj)
         {
             Type objType = obj.GetType();
-
-            Object[] objAttributes = objType.GetCustomAttributes(typeof(RegistryDataContractAttribute), false);
-
-            if (objAttributes.Length == 0)
+            
+            if (!objType.IsDefined(typeof(RegistryDataContractAttribute)))
             {
                 throw new RegistrySerializationException(string.Format(RegistrySerializationLocalization.NoRegistryDataContractAttribute, objType.Name, typeof(RegistryDataContractAttribute).Name));
             }
 
             PropertyInfo[] objPropeties = objType.GetProperties();
 
-            Attribute objPropertyAttribute = null;
             bool noPropertyWithAttribute = true;
 
             foreach (var objPropety in objPropeties)
-            {
-                objPropertyAttribute = objPropety.GetCustomAttribute(typeof(RegistryDataMemberAttribute), false);
-
-                if (objPropertyAttribute == null)
+            {     
+                if (!objPropety.IsDefined(typeof(RegistryDataMemberAttribute)))
                 {
                     continue;
                 }
@@ -88,23 +83,18 @@ namespace Tools.RegistrySerialization
         {
             object obj = Activator.CreateInstance(objType);
 
-            Object[] objAttributes = objType.GetCustomAttributes(typeof(RegistryDataContractAttribute), false);
-
-            if (objAttributes.Length == 0)
+            if (!objType.IsDefined(typeof(RegistryDataContractAttribute)))
             {
                 throw new RegistrySerializationException(string.Format(RegistrySerializationLocalization.NoRegistryDataContractAttribute, objType.Name, typeof(RegistryDataContractAttribute).Name));
             }
 
             PropertyInfo[] objPropeties = objType.GetProperties();
 
-            Attribute objPropertyAttribute = null;
             bool noPropertyWithAttribute = true;
 
             foreach (var objPropety in objPropeties)
             {
-                objPropertyAttribute = objPropety.GetCustomAttribute(typeof(RegistryDataMemberAttribute), false);
-
-                if (objPropertyAttribute == null)
+                if (!objPropety.IsDefined(typeof(RegistryDataMemberAttribute)))
                 {
                     continue;
                 }
